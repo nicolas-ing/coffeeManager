@@ -8,6 +8,7 @@ import com.coffeemanager.coffeemanager.exception.ResourceNotFoundException;
 import com.coffeemanager.coffeemanager.repository.RolRepository;
 import com.coffeemanager.coffeemanager.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -21,6 +22,9 @@ public class UsuarioService {
 
     @Autowired
     private RolRepository rolRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public UsuarioResponseDTO guardarUsuario(
             UsuarioRequestDTO request) {
@@ -45,7 +49,7 @@ public class UsuarioService {
         usuario.setNombre(request.getNombre());
         usuario.setApellido(request.getApellido());
         usuario.setEmail(request.getEmail());
-        usuario.setPassword(request.getPassword());
+        usuario.setPassword(passwordEncoder.encode(request.getPassword()));
         usuario.setTelefono(request.getTelefono());
 
         if (request.getEstado() == null || request.getEstado().isBlank()) {
@@ -121,7 +125,7 @@ public class UsuarioService {
         usuario.setNombre(request.getNombre());
         usuario.setApellido(request.getApellido());
         usuario.setEmail(request.getEmail());
-        usuario.setPassword(request.getPassword());
+        usuario.setPassword(passwordEncoder.encode(request.getPassword()));
         usuario.setTelefono(request.getTelefono());
 
         if (request.getEstado() == null || request.getEstado().isBlank()) {
