@@ -13,12 +13,14 @@ public class SecurityConfig {
 
         http
                 .csrf(csrf -> csrf.disable())
+                .httpBasic(httpBasic -> {})
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/api/roles/**",
                                 "/api/permisos/**",
                                  "/api/roles-permisos/**",
-                                "/api/usuarios/**"
+                                "/api/usuarios/**",
+                                "/api/auth/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 );

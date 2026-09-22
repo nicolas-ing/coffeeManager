@@ -148,4 +148,12 @@ public class UsuarioService {
 
         usuarioRepository.delete(usuario);
     }
+
+    public Usuario obtenerUsuarioPorEmail(String email) {
+
+        return usuarioRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "El usuario con correo " + email + " no fue encontrado"
+                ));
+    }
 }
