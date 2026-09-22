@@ -1,0 +1,102 @@
+package com.coffeemanager.coffeemanager.dto;
+
+import java.time.LocalDateTime;
+
+public class UsuarioResponseDTO {
+
+    private Integer idUsuario;
+    private Integer idRol;
+    private String nombre;
+    private String apellido;
+    private String email;
+    private String telefono;
+    private String estado;
+    private LocalDateTime fechaCreacion;
+
+    public UsuarioResponseDTO() {
+    }
+
+    public UsuarioResponseDTO(
+            Integer idUsuario,
+            Integer idRol,
+            String nombre,
+            String apellido,
+            String email,
+            String telefono,
+            String estado,
+            LocalDateTime fechaCreacion) {
+
+        this.idUsuario = idUsuario;
+        this.idRol = idRol;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.telefono = telefono;
+        this.estado = estado;
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public Integer getIdRol() {
+        return idRol;
+    }
+
+    public void setIdRol(Integer idRol) {
+        this.idRol = idRol;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public LocalDateTime getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(LocalDateTime fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+}

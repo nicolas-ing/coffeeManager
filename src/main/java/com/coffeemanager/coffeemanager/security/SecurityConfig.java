@@ -16,7 +16,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/api/roles/**",
-                                "/api/permisos/**"
+                                "/api/permisos/**",
+                                 "/api/roles-permisos/**",
+                                "/api/usuarios/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 );
