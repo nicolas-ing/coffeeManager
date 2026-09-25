@@ -33,6 +33,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String authorizationHeader =
                 request.getHeader("Authorization");
 
+
         if (authorizationHeader == null ||
                 !authorizationHeader.startsWith("Bearer ")) {
 
@@ -67,8 +68,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         } catch (Exception exception) {
 
-            // Token inválido o expirado.
-            // La petición continuará sin autenticación.
+
         }
 
         filterChain.doFilter(request, response);
