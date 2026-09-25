@@ -2,7 +2,6 @@ package com.coffeemanager.coffeemanager.controller;
 
 import com.coffeemanager.coffeemanager.dto.LoginRequestDTO;
 import com.coffeemanager.coffeemanager.dto.LoginResponseDTO;
-import com.coffeemanager.coffeemanager.entity.Usuario;
 import com.coffeemanager.coffeemanager.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +19,8 @@ public class AuthController {
     public ResponseEntity<LoginResponseDTO> login(
             @Valid @RequestBody LoginRequestDTO request) {
 
-        Usuario usuario = authService.autenticar(request);
-
-        LoginResponseDTO respuesta = new LoginResponseDTO(
-                usuario.getIdUsuario(),
-                usuario.getIdRol(),
-                usuario.getNombre(),
-                usuario.getApellido(),
-                usuario.getEmail(),
-                usuario.getTelefono(),
-                usuario.getEstado()
-        );
+        LoginResponseDTO respuesta =
+                authService.autenticar(request);
 
         return ResponseEntity.ok(respuesta);
     }

@@ -9,11 +9,13 @@ public class LoginResponseDTO {
     private String email;
     private String telefono;
     private String estado;
+    private String token;
 
     public LoginResponseDTO() {
     }
 
     public LoginResponseDTO(
+            String token,
             Integer idUsuario,
             Integer idRol,
             String nombre,
@@ -22,6 +24,7 @@ public class LoginResponseDTO {
             String telefono,
             String estado) {
 
+        this.token = token;
         this.idUsuario = idUsuario;
         this.idRol = idRol;
         this.nombre = nombre;
@@ -85,5 +88,12 @@ public class LoginResponseDTO {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }
