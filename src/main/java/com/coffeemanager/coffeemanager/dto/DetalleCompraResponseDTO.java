@@ -1,0 +1,80 @@
+package com.coffeemanager.coffeemanager.dto;
+
+import java.math.BigDecimal;
+
+public class DetalleCompraResponseDTO {
+
+    private Integer idDetalleCompra;
+    private Integer idCompra;
+    private Integer idProducto;
+    private Integer cantidad;
+    private BigDecimal precioUnitario;
+    private BigDecimal subtotal;
+
+    public DetalleCompraResponseDTO() {
+    }
+
+    public DetalleCompraResponseDTO(
+            Integer idDetalleCompra,
+            Integer idCompra,
+            Integer idProducto,
+            Integer cantidad,
+            BigDecimal precioUnitario,
+            BigDecimal subtotal) {
+
+        this.idDetalleCompra = idDetalleCompra;
+        this.idCompra = idCompra;
+        this.idProducto = idProducto;
+        this.cantidad = cantidad;
+        this.precioUnitario = precioUnitario;
+        this.subtotal = subtotal;
+    }
+
+    public Integer getIdDetalleCompra() {
+        return idDetalleCompra;
+    }
+
+    public void setIdDetalleCompra(Integer idDetalleCompra) {
+        this.idDetalleCompra = idDetalleCompra;
+    }
+
+    public Integer getIdCompra() {
+        return idCompra;
+    }
+
+    public void setIdCompra(Integer idCompra) {
+        this.idCompra = idCompra;
+    }
+
+    public Integer getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(Integer idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public BigDecimal getPrecioUnitario() {
+        return precioUnitario;
+    }
+
+    public void setPrecioUnitario(BigDecimal precioUnitario) {
+        this.precioUnitario = precioUnitario;
+    }
+
+    public BigDecimal getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(BigDecimal subtotal) {
+        this.subtotal = subtotal;
+    }
+}
