@@ -2,6 +2,7 @@ package com.coffeemanager.coffeemanager.service;
 
 import com.coffeemanager.coffeemanager.dto.UsuarioRequestDTO;
 import com.coffeemanager.coffeemanager.dto.UsuarioResponseDTO;
+import com.coffeemanager.coffeemanager.dto.ActualizarUsuarioRequestDTO;
 import com.coffeemanager.coffeemanager.entity.Usuario;
 import com.coffeemanager.coffeemanager.exception.ResourceAlreadyExistsException;
 import com.coffeemanager.coffeemanager.exception.ResourceNotFoundException;
@@ -98,7 +99,7 @@ public class UsuarioService {
     }
     public UsuarioResponseDTO actualizarUsuario(
             Integer id,
-            UsuarioRequestDTO request) {
+            ActualizarUsuarioRequestDTO request) {
 
         Usuario usuario = usuarioRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(
@@ -125,7 +126,6 @@ public class UsuarioService {
         usuario.setNombre(request.getNombre());
         usuario.setApellido(request.getApellido());
         usuario.setEmail(request.getEmail());
-        usuario.setPassword(passwordEncoder.encode(request.getPassword()));
         usuario.setTelefono(request.getTelefono());
 
         if (request.getEstado() == null || request.getEstado().isBlank()) {

@@ -1,5 +1,6 @@
 package com.coffeemanager.coffeemanager.controller;
 
+import com.coffeemanager.coffeemanager.dto.ActualizarUsuarioRequestDTO;
 import com.coffeemanager.coffeemanager.dto.UsuarioRequestDTO;
 import com.coffeemanager.coffeemanager.dto.UsuarioResponseDTO;
 import com.coffeemanager.coffeemanager.service.UsuarioService;
@@ -38,6 +39,7 @@ public class UsuarioController {
 
         return ResponseEntity.ok(usuarios);
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioResponseDTO> obtenerUsuarioPorId(
             @PathVariable Integer id) {
@@ -47,16 +49,18 @@ public class UsuarioController {
 
         return ResponseEntity.ok(respuesta);
     }
+
     @PutMapping("/{id}")
     public ResponseEntity<UsuarioResponseDTO> actualizarUsuario(
             @PathVariable Integer id,
-            @Valid @RequestBody UsuarioRequestDTO request) {
+            @Valid @RequestBody ActualizarUsuarioRequestDTO request) {
 
         UsuarioResponseDTO respuesta =
                 usuarioService.actualizarUsuario(id, request);
 
         return ResponseEntity.ok(respuesta);
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarUsuario(
             @PathVariable Integer id) {
